@@ -9,8 +9,8 @@ interface CarOutput {
      */
     fun getCurrentSpeed(): Int
 
-//    /**
-//     * Получить уровень топлива
-//     */
-//    fun getFuelLevel(): Int
+    /**
+     * Получить уровень топлива
+     */
+    fun getFuelLevel(): Int
 }

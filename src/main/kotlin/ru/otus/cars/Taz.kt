@@ -1,6 +1,25 @@
 package ru.otus.cars
 
+import kotlin.random.Random
+
 object Taz: Car {
+
+    /**
+     * Рандомный выбор горловины
+     */
+    private fun getRandomTankMouth(): TankMouth {
+        return when (Random.nextInt(0, 2)) {
+            0 -> TankMouth.PetrolMouth()
+            else -> TankMouth.LpgMouth()
+        }
+    }
+
+    /**
+     * Горловина
+     */
+    override val tankMouth: TankMouth
+        get() = getRandomTankMouth()
+
     /**
      * Номерной знак
      */
@@ -35,5 +54,9 @@ object Taz: Car {
      */
     override fun wheelToLeft(degrees: Int) {
         throw NotImplementedError("Руля нет")
+    }
+
+    override fun addFuel(liters: Int) {
+        throw IllegalArgumentException("Топливная система не найдена! Взрыв!")
     }
 }
